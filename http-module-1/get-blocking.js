@@ -9,7 +9,7 @@ const port = 8000;
 const requestListener = function (req, res) {
   res.setHeader("Content-Type", "application/json");
 
-  // const filepath = "./uploads/sample.txt";
+  // const filepath = "../uploads/sample.txt";
   // const data = fs.readFileSync(filepath, { encoding: "utf8" });
   // console.log(data);
 
@@ -21,7 +21,7 @@ const requestListener = function (req, res) {
     res.end(`Finished Blocking ${Math.random()}`);
   } else {
     // chris will send event loop video
-    
+
     res.end(`Finished Non Blocking ${Math.random()}`);
   }
 

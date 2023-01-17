@@ -7,7 +7,7 @@ const port = 8000;
 
 //https://www.codingninjas.com/codestudio/library/blocking-and-non-blocking-in-node-js
 const requestListener = function (req, res) {
-  const filepath = "./uploads/sample.txt";
+  const filepath = "../uploads/sample.txt";
 
   const handleFileRead = (err, data) => {
     res.end(data);
