@@ -9,17 +9,24 @@ const port = 8000;
 const requestListener = function (req, res) {
   const filepath = "./uploads/sample.txt";
 
-  fs.readFile(filepath, { encoding: "utf8" }, (err, data) => {
-    console.log(data);
-  });
+  const handleFileRead = (err, data) => {
+    res.end(data);
+  };
 
-  let sum = 0;
-  for (let i = 1; i <= 73; i++) {
-    sum = sum + i;
-  }
+  fs.readFile(filepath, { encoding: "utf8" }, handleFileRead);
 
-  res.end("Done");
-  console.log("Sum: ", sum);
+  // change this into async and await code challenge
+  // promise
+
+  // express
+  //typescript
+
+  //write in javascript
+  //call with chris in typescript
+
+  // promisify
+
+  // res.end("Done");
 };
 
 const server = http.createServer(requestListener);

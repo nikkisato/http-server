@@ -1,7 +1,7 @@
 const http = require("http");
 
-const host = "localhost";
-const port = 8000;
+// const host = "localhost";
+// const port = 8000;
 
 // GET / json;
 // const requestListener = function (req, res) {
@@ -16,8 +16,8 @@ const port = 8000;
 //   console.log(`Server is running on http://${host}:${port}`);
 // });
 
-// const host = "localhost";
-// const port = 8000;
+const host = "localhost";
+const port = 8000;
 
 // GET /json - receive data either through the body
 //or in the request search params.
@@ -31,14 +31,16 @@ const requestListener = (req, res) => {
     endingMessage: "Thank you",
   };
 
+  console.log(req.method);
+
   const jsonContent = JSON.stringify(responseData);
   res.end(jsonContent);
 };
 
 const server = http.createServer(requestListener);
 
-server.listen(8002, "localhost", function () {
-  console.log("Server is Listening at Port 8002!");
+server.listen(port, host, function () {
+  console.log(`Server is Listening at Port ${port}!`);
 });
 
 // confused on this because I can get and post using postman?
