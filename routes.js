@@ -30,6 +30,23 @@ const requestListener = function (req, res) {
   }
 };
 
+// const requestListener = function (req, res) {
+//   res.setHeader("Content-Type", "application/json");
+//   switch (req.method) {
+//     case "GET":
+//       res.writeHead(200);
+//       res.end(books);
+//       break;
+//     case "POST":
+//       res.writeHead(200);
+//       res.end(authors);
+//       break;
+//     default:
+//       res.writeHead(404);
+//       res.end(JSON.stringify({ error: "Resource not Found" }));
+//   }
+// };
+
 const server = http.createServer(requestListener);
 server.listen(port, host, () => {
   console.log(`Server is running on http://${host}:${port}`);
