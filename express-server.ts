@@ -2,10 +2,6 @@ import express, { Request, Response } from "express";
 const app = express();
 const cors = require("cors");
 
-// typescript comes with a really powerful compiler instead of babel
-// minify compress everything
-// type safety
-
 // Variables
 const host = "localhost";
 const port = 8000;
