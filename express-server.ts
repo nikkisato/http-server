@@ -29,13 +29,9 @@ app.get(
       endingMessage: "12",
     };
 
-    res.status(400);
-    // res.json(responseData);
-    res.send("bad request");
-    //opaque for customer
-    // if (res.status) {
-    //   console.log("Status is 400");
-    // }
+    res.status(200);
+    res.json(responseData);
+    // res.send("bad request");
   }
 );
 
