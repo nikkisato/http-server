@@ -31,3 +31,41 @@
 - Change the code for web server code in Week 1 using Express.js. We will convert this to TypeScript on the call and implement a few libraries for a better dev experience.
 - Have a watch of this video - it’s one the best explanations of what the javascript execution stack is, what the event loop is, etc. It is browser focused, but remember that Node.js was created by taking the V8 engine out of the Chrome browser - so the principles are very similar. https://youtu.be/8zKuNo4ay8E
 - Look at the following code block. Try to understand it, execute it, play around with it, and think about why the order of the printed logs is what it is
+
+```function longRun(cb) {
+  let x = true;
+  let count = 0
+  while(x) {
+    if (count === 500000000) x = false;
+    count++
+  }
+  cb("finished long run")
+}
+
+
+function execute() {
+  console.log("beginning execution block")
+
+
+  // we wrap a sync task in a promise
+  new Promise((resolve, reject) => longRun(resolve)).then((msg) => {
+    console.log(msg)
+  })
+
+
+  longRun(() => console.log("finished long run without promise wrapper"))
+
+
+  // we wrap an async task in a promise
+  new Promise((resolve, reject) => setTimeout(() => resolve("finished timeout"), 4000)).then((msg) => {
+    console.log(msg)
+  })
+  
+  console.log("completed execution block")
+}
+
+
+// what will the order of printed logs be?
+
+
+execute()
